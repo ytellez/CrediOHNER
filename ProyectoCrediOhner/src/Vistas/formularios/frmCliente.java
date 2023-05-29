@@ -61,13 +61,12 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jButtonActualizar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         jSeparator5.setBackground(new java.awt.Color(0, 255, 51));
 
         setBorder(null);
+        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 161, 154));
@@ -88,30 +87,30 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(7, 81, 74));
         jLabel4.setText("Cédula");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 255, 51));
         jSeparator1.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 240, 20));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 240, 10));
 
         jSeparator3.setBackground(new java.awt.Color(0, 255, 51));
         jSeparator3.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 510, 20));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 510, 20));
 
         jSeparator2.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 240, 20));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 240, 10));
 
         jSeparator4.setBackground(new java.awt.Color(0, 255, 51));
         jSeparator4.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 510, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 510, 10));
 
         jSeparator6.setBackground(new java.awt.Color(0, 255, 51));
         jSeparator6.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 20));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 10));
 
         jSeparator7.setBackground(new java.awt.Color(0, 255, 51));
         jSeparator7.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 240, 20));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 240, 10));
 
         jTextCedula.setBorder(null);
         try {
@@ -122,13 +121,13 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jTextCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextCedula.setToolTipText("");
         jTextCedula.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
-        jPanel2.add(jTextCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 520, 40));
+        jPanel2.add(jTextCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 510, 40));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(7, 81, 74));
         jLabel5.setText("Nombres");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jTextNombres.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jTextNombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -144,7 +143,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(7, 81, 74));
         jLabel6.setText("Apellidos");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
         jTextApellidos.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jTextApellidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -160,7 +159,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(7, 81, 74));
         jLabel8.setText("Dirección");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, 30));
 
         jTextTelefono.setBorder(null);
         try {
@@ -181,7 +180,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(7, 81, 74));
         jLabel9.setText("Sobrenombre");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jTextSobrenombre.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jTextSobrenombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -197,7 +196,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(7, 81, 74));
         jLabel10.setText("Teléfono");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         jTextDireccion.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jTextDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -207,7 +206,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
                 jTextDireccionActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 510, 40));
+        jPanel2.add(jTextDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 510, 40));
 
         jButtonGuardar.setBackground(new java.awt.Color(250, 178, 53));
         jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -219,7 +218,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 120, 50));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 120, 50));
 
         jButtonActualizar.setBackground(new java.awt.Color(250, 178, 53));
         jButtonActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -243,39 +242,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jLabel2.setText("Registrar");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        jPanel4.setBackground(java.awt.Color.gray);
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel4MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel4MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel4MouseExited(evt);
-            }
-        });
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setBackground(java.awt.Color.gray);
-        jLabel11.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("x");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
-
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 30, 30));
-
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 161, 154));
         jLabel3.setText("Nuevo Cliente");
@@ -287,14 +253,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
-
-    }//GEN-LAST:event_jPanel4MouseEntered
-
-    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
-
-    }//GEN-LAST:event_jPanel4MouseExited
 
     private void jTextNombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNombresKeyTyped
         char car = evt.getKeyChar();
@@ -378,6 +336,8 @@ public class frmCliente extends javax.swing.JInternalFrame {
                     guardarCliente();
                     limpiar();
                     JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
+                    this.dispose();
+                    frmGestionarClientes.botonmostrar.doClick();
                 }
 
             }
@@ -388,9 +348,10 @@ public class frmCliente extends javax.swing.JInternalFrame {
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         try {
-            if ((jTextNombres.getText().equals(""))
+            if ((jTextCedula.getText().equals("   -      -     "))
+                    || (jTextNombres.getText().equals(""))
                     || (jTextApellidos.getText().equals(""))
-                    || (jTextTelefono.getText().equals(""))
+                    || (jTextTelefono.getText().equals("    -    "))
                     || (jTextSobrenombre.getText().equals(""))
                     || (jTextDireccion.getText().equals(""))) {
                 JOptionPane.showMessageDialog(null, "Tiene datos vacíos");
@@ -407,22 +368,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
-
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        jPanel4.setBackground(Color.RED);
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        dispose();
-    }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        jPanel4.setBackground(Color.GRAY);
-    }//GEN-LAST:event_jLabel11MouseExited
-
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel4MouseClicked
     public void guardarCliente() {
 
         CRUDCliente cc = new CRUDCliente();
@@ -455,7 +400,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
     public static javax.swing.JButton jButtonActualizar;
     public static javax.swing.JButton jButtonGuardar;
     public static javax.swing.JLabel jLabel10;
-    public static javax.swing.JLabel jLabel11;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
@@ -467,7 +411,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
     public static javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel2;
     public static javax.swing.JPanel jPanel3;
-    public static javax.swing.JPanel jPanel4;
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JSeparator jSeparator1;
     public static javax.swing.JSeparator jSeparator2;

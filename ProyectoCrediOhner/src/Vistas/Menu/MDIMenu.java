@@ -5,7 +5,10 @@
 package Vistas.Menu;
 
 import Vistas.formularios.frmCliente;
+import Vistas.formularios.frmCredito;
+import Vistas.formularios.frmGarantias;
 import Vistas.formularios.frmGestionarClientes;
+import Vistas.formularios.frmGestionarGarantias;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -29,6 +32,7 @@ public class MDIMenu extends javax.swing.JFrame {
         int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
         jdpane.setBounds(0, 0, ancho, (alto));
+       
         
        //this.setContentPane(fondo);
     }
@@ -48,6 +52,7 @@ public class MDIMenu extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -64,7 +69,7 @@ public class MDIMenu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jdpane.setBackground(new java.awt.Color(255, 255, 255));
+        jdpane.setBackground(getBackground());
 
         jToolBar1.setBackground(new java.awt.Color(250, 178, 53));
         jToolBar1.setFloatable(false);
@@ -72,7 +77,7 @@ public class MDIMenu extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/iconos/clienteGrande.png"))); // NOI18N
-        jButton1.setText("Nuevo Cliente");
+        jButton1.setText("Clientes");
         jButton1.setToolTipText("Nuevo Cliente");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -87,12 +92,17 @@ public class MDIMenu extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/iconos/creditoGrande.png"))); // NOI18N
-        jButton2.setText("Nuevo Crédito");
+        jButton2.setText("Créditos");
         jButton2.setToolTipText("Nuevo Crédito");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setPreferredSize(new java.awt.Dimension(90, 92));
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton2);
 
         jButton3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -113,6 +123,19 @@ public class MDIMenu extends javax.swing.JFrame {
         jButton4.setPreferredSize(new java.awt.Dimension(90, 92));
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton4);
+
+        jButton5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/iconos/garantia grande.png"))); // NOI18N
+        jButton5.setText("Garantías");
+        jButton5.setFocusable(false);
+        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton5);
 
         jdpane.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -164,6 +187,11 @@ public class MDIMenu extends javax.swing.JFrame {
         saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/iconos/garantiaPequeño.png"))); // NOI18N
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Garantías");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         menuBar.add(fileMenu);
@@ -222,21 +250,21 @@ public class MDIMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        frmGestionarClientes cliente = new frmGestionarClientes();
-        int x = (jdpane.getWidth() / 2) - cliente.getWidth() / 2;
-        int y = (jdpane.getHeight() / 2) - cliente.getHeight() / 2;
-        cliente.setLocation(x, y);
-        jdpane.add(cliente);
-        cliente.show();
-    }//GEN-LAST:event_openMenuItemActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         frmCliente cliente = new frmCliente();
         int x = (jdpane.getWidth() / 2) - cliente.getWidth() / 2;
         int y = ((jdpane.getHeight() / 2) - cliente.getHeight() / 2) - 10;
         cliente.setLocation(x, y);
         jdpane.add(cliente);
         frmCliente.jButtonActualizar.setVisible(false);
+        cliente.show();
+    }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        frmGestionarClientes cliente = new frmGestionarClientes();
+        int x = (jdpane.getWidth() / 2) - cliente.getWidth() / 2;
+        int y = (jdpane.getHeight() / 2) - cliente.getHeight() / 2;
+        cliente.setLocation(x, y);
+        jdpane.add(cliente);
         cliente.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -251,6 +279,35 @@ public class MDIMenu extends javax.swing.JFrame {
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+       frmGarantias cliente = new frmGarantias();
+        int x = (jdpane.getWidth() / 2) - cliente.getWidth() / 2;
+        int y = ((jdpane.getHeight() / 2) - cliente.getHeight() / 2) - 10;
+        cliente.setLocation(x, y);
+        jdpane.add(cliente);
+        frmGarantias.jButtonActualizar.setVisible(false);
+        cliente.show();
+       
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       frmGestionarGarantias obj = new frmGestionarGarantias();
+        int x = (jdpane.getWidth() / 2) - obj.getWidth() / 2;
+        int y = ((jdpane.getHeight() / 2) - obj.getHeight() / 2) - 10;
+        obj.setLocation(x, y);
+        jdpane.add(obj);
+        obj.show();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        frmCredito obj = new frmCredito();
+        int x = (jdpane.getWidth() / 2) - obj.getWidth() / 2;
+        int y = ((jdpane.getHeight() / 2) - obj.getHeight() / 2) - 10;
+        obj.setLocation(x, y);
+        jdpane.add(obj);
+        obj.show();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,6 +355,7 @@ public class MDIMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar1;
     public static javax.swing.JDesktopPane jdpane;
@@ -314,9 +372,8 @@ public class MDIMenu extends javax.swing.JFrame {
         @Override
         public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/Vistas/iconos/fondo.jpg")).getImage();
-            g.drawImage(imagen, 0, 200, getWidth(), getHeight(), this);
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
-            
             super.paint(g);
             
         }

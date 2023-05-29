@@ -7,6 +7,7 @@ package Vistas.formularios;
 import Controlador.CRUDCliente;
 import Vistas.Menu.MDIMenu;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,22 +16,22 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuario
  */
 public class frmGestionarClientes extends javax.swing.JInternalFrame {
-    
+
     int datoSeleccionado = -1;
-    
+
     public frmGestionarClientes() {
         initComponents();
         mostrar();
         botonmostrar.setVisible(false);
     }
-    
+
     public void mostrar() {
         try {
             DefaultTableModel modelo;
             CRUDCliente cli = new CRUDCliente();
             modelo = cli.mostrarDatos();
             tableClientes.setModel(modelo);
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -48,7 +49,6 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
         botonmostrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTextSearch = new javax.swing.JTextField();
-        jButtonBuscar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,8 +74,13 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
         jTextSearch.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jTextSearch.setForeground(new java.awt.Color(153, 153, 153));
         jTextSearch.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextSearch.setText("Escribe la cédula, nombres o apellidos");
+        jTextSearch.setText("Buscar por cédula, nombres o apellidos");
         jTextSearch.setBorder(null);
+        jTextSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextSearchFocusLost(evt);
+            }
+        });
         jTextSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextSearchMouseClicked(evt);
@@ -92,16 +97,15 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
                 jTextSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 510, 40));
-
-        jButtonBuscar.setBackground(new java.awt.Color(0, 161, 154));
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/iconos/busqueda.png"))); // NOI18N
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
+        jTextSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextSearchKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextSearchKeyTyped(evt);
             }
         });
-        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 50, 40));
+        jPanel1.add(jTextSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 570, 40));
 
         jButtonEliminar.setBackground(new java.awt.Color(0, 161, 154));
         jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/iconos/basura.png"))); // NOI18N
@@ -186,27 +190,6 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jTextSearchMouseReleased
 
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        try {
-            
-            DefaultTableModel modelo;
-            CRUDCliente cli = new CRUDCliente();
-            modelo = cli.buscarDatos(jTextSearch.getText());
-            if ((jTextSearch.getText().equals("Escribe la cédula, nombres o apellidos"))
-                    || (jTextSearch.getText().equals(""))) {
-                JOptionPane.showMessageDialog(null, "Escriba el dato a buscar");
-                jTextSearch.setText("Escribe la cédula, nombres o apellidos");
-                jTextSearch.setForeground(Color.gray);
-                mostrar();
-            } else {
-                tableClientes.setModel(modelo);
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
-
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         frmCliente cliente = new frmCliente();
         int x = (MDIMenu.jdpane.getWidth() / 2) - cliente.getWidth() / 2;
@@ -224,7 +207,7 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextSearchMousePressed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        
+
         if (datoSeleccionado >= 0) {
             String dato = String.valueOf(tableClientes.getValueAt(datoSeleccionado, 0));
             CRUDCliente cli = new CRUDCliente();
@@ -238,12 +221,12 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
                 mostrar();
                 JOptionPane.showMessageDialog(null,
                         "Dato eliminado correctamente");
-            }    
+            }
         } else {
             JOptionPane.showMessageDialog(null,
                     "Debe seleccionar un registro de la tabla");
         }
-        
+
 
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
@@ -257,7 +240,7 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
         int y = (MDIMenu.jdpane.getHeight() / 2) - cliente.getHeight() / 2;
         cliente.setLocation(x, y);
         MDIMenu.jdpane.add(cliente);
-        
+
         if (datoSeleccionado >= 0) {
             //mandar datos al formulario
             frmCliente.jTextCedula.setText(String.valueOf(tableClientes.getValueAt(datoSeleccionado, 0)));
@@ -280,11 +263,32 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
         mostrar();
     }//GEN-LAST:event_botonmostrarActionPerformed
 
+    private void jTextSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextSearchKeyReleased
+        buscar();
+    }//GEN-LAST:event_jTextSearchKeyReleased
+
+    private void jTextSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextSearchKeyTyped
+
+    }//GEN-LAST:event_jTextSearchKeyTyped
+
+    private void jTextSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextSearchFocusLost
+        jTextSearch.setText("Buscar por cédula, nombres o apellidos");
+        jTextSearch.setForeground(Color.gray);
+    }//GEN-LAST:event_jTextSearchFocusLost
+    public void buscar() {
+        try {
+            DefaultTableModel modelo;
+            CRUDCliente cli = new CRUDCliente();
+            modelo = cli.buscarDatos(jTextSearch.getText());
+            tableClientes.setModel(modelo);
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton botonmostrar;
     private javax.swing.JButton jButtonAgregar;
-    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JLabel jLabel1;
