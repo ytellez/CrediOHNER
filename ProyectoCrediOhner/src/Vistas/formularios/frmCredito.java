@@ -21,6 +21,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
     String[] titulos = {"Cod Garantía", "Nombre Garantía"};
     String[] datos = new String[2];
+    int datoSeleccionado;
 
     public frmCredito() {
         initComponents();
@@ -51,10 +52,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         jTextCedula = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
@@ -79,31 +77,21 @@ public class frmCredito extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jComboGarantias = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setClosable(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 161, 154));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(7, 81, 74));
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 160, 120));
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(7, 81, 74));
-        jLabel4.setText("Código");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, -1));
-
-        jSeparator3.setBackground(new java.awt.Color(0, 255, 51));
-        jSeparator3.setForeground(new java.awt.Color(7, 81, 74));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 160, 20));
 
         jTextCedula.setBorder(null);
         try {
@@ -132,7 +120,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 120, 50));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 120, 50));
 
         jButtonActualizar.setBackground(new java.awt.Color(250, 178, 53));
         jButtonActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -144,7 +132,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
                 jButtonActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 470, 120, 50));
+        jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 120, 50));
 
         jButton1.setText("jButton1");
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 40, 40));
@@ -203,9 +191,14 @@ public class frmCredito extends javax.swing.JInternalFrame {
                 "Cod Garantía", "Nombre Garantía"
             }
         ));
+        jTableGarantias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableGarantiasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableGarantias);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 350, 90));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 390, 90));
 
         jButton2.setText("+");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +206,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 40, 50));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 40, 50));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -244,9 +237,22 @@ public class frmCredito extends javax.swing.JInternalFrame {
         jSeparator8.setForeground(new java.awt.Color(7, 81, 74));
         jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 160, 20));
 
-        jPanel2.add(jComboGarantias, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 280, 60));
+        jPanel2.add(jComboGarantias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 270, 50));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 680, 530));
+        jButton3.setText("-");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 40, 50));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 161, 154));
+        jLabel3.setText("Nuevo Crédito");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 680, 560));
 
         jPanel3.setBackground(new java.awt.Color(250, 178, 53));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -254,12 +260,17 @@ public class frmCredito extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Roboto Black", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(7, 81, 74));
         jLabel2.setText("Registrar");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 161, 154));
-        jLabel3.setText("Nuevo Crédito");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(7, 81, 74));
+        jLabel4.setText("Código");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, -1, -1));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 255, 51));
+        jSeparator3.setForeground(new java.awt.Color(7, 81, 74));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 120, 20));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 140));
 
@@ -318,10 +329,24 @@ public class frmCredito extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       if (datoSeleccionado >= 0) {
+            int fila = jTableGarantias.getSelectedRow();
+            modelo.removeRow(fila);
+       }
+       else
+           JOptionPane.showConfirmDialog(null, "Seleccione el dato a eliminar");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTableGarantiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableGarantiasMouseClicked
+         datoSeleccionado = jTableGarantias.rowAtPoint(evt.getPoint());
+    }//GEN-LAST:event_jTableGarantiasMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -340,7 +365,6 @@ public class frmCredito extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

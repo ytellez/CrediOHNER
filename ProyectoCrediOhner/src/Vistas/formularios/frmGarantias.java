@@ -151,7 +151,7 @@ public class frmGarantias extends javax.swing.JInternalFrame {
         jPanel2.add(jRadioLibre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 101, 140, 60));
 
         jlabelcod.setText("jLabel4");
-        jPanel2.add(jlabelcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 130, 40));
+        jPanel2.add(jlabelcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 0, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 550, 340));
 
