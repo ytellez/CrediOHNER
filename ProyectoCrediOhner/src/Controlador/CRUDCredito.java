@@ -12,7 +12,7 @@ public class CRUDCredito {
     public void CrearCredito(Credito cr){
        try {
             CallableStatement call = cn.prepareCall("{call CrearCredito(?,?,?,?,?,?,?,?)}");
-            call.setDate(1, new java.sql.Date(cr.getFecha().getDate()));
+            call.setString(1, cr.getFecha());
             call.setString(2,cr.getCicloPagos());
             call.setFloat(3,cr.getInteres());
             call.setFloat(4,cr.getMonto());

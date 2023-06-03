@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class frmCredito extends javax.swing.JInternalFrame {
@@ -47,6 +46,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
                     listaGarantias.get(i).getCodGarantia(),
                     listaGarantias.get(i).getNombreGarantia()));
         }
+        limpiar();
 
     }
 
@@ -337,8 +337,8 @@ public void limpiar() {
                 JOptionPane.showMessageDialog(null, "Debe añadir a la tabla al menos una garantía");
             }
             else {
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                Date fecha = formato.parse(jTextFechaActual.getText());
+                
+                String fecha =(jTextFechaActual.getText());
                 String cicloPagos = jComboCicloPagos.getSelectedItem().toString();
                 float interes = switch (jComboInteres.getSelectedItem().toString()) {
                     case "6%" ->
@@ -376,7 +376,7 @@ public void limpiar() {
                 }
                 JOptionPane.showMessageDialog(null, "Datos Guardados correctamente");
             }
-        } catch (HeadlessException | NumberFormatException | ParseException e) {
+        } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Erro" + e);
 
         }

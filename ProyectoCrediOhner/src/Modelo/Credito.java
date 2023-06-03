@@ -7,7 +7,7 @@ package Modelo;
 import java.util.Date;
 
 public class Credito {
-    Date fecha;
+    String fecha;
     String cicloPagos;
     float interes;
     float monto;
@@ -16,7 +16,7 @@ public class Credito {
     int cantidadPagos;
     String cedula;
 
-    public Credito(Date fecha, String cicloPagos, float interes, float monto, int estado, String moneda, int cantidadPagos, String cedula) {
+    public Credito(String fecha, String cicloPagos, float interes, float monto, int estado, String moneda, int cantidadPagos, String cedula) {
         this.fecha = fecha;
         this.cicloPagos = cicloPagos;
         this.interes = interes;
@@ -27,11 +27,11 @@ public class Credito {
         this.cedula = cedula;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
