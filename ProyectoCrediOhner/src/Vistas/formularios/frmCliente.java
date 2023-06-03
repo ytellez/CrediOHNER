@@ -218,7 +218,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 120, 50));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 120, 50));
 
         jButtonActualizar.setBackground(new java.awt.Color(250, 178, 53));
         jButtonActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

@@ -66,7 +66,7 @@ public class frmGestionarClientes extends javax.swing.JInternalFrame {
                 botonmostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 20, 0, 30));
+        getContentPane().add(botonmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 20, 90, 60));
 
         jPanel1.setBackground(new java.awt.Color(250, 178, 53));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

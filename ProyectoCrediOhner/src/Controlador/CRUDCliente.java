@@ -72,6 +72,25 @@ public class CRUDCliente {
 
     }
 
+    public String buscarDatosCliente(String dato) {
+        ResultSet rs;
+        String respuesta="";
+
+        try {
+            CallableStatement call = cn.prepareCall("{call ConsultarClientes(?)}");
+            call.setString(1, dato);
+            rs = call.executeQuery();
+            while (rs.next()) {
+                respuesta = rs.getString("nombres")+" "+rs.getString("apellidos");
+            }
+            return respuesta;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+
+    }
+
     public boolean verificarDatos(String dato) {
         ResultSet rs;
 
