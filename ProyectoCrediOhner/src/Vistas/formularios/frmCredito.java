@@ -255,7 +255,7 @@ public class frmCredito extends javax.swing.JInternalFrame {
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 280, 80));
 
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 300, 160));
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 300, 170));
 
         jComboInteres.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jComboInteres.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6%", "10%", "15%" }));

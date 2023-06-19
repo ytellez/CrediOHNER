@@ -4,15 +4,21 @@
  */
 package Vistas.Menu;
 
+import Controlador.Conexion;
 import Vistas.formularios.frmCliente;
 import Vistas.formularios.frmCredito;
 import Vistas.formularios.frmGarantias;
 import Vistas.formularios.frmGestionarClientes;
 import Vistas.formularios.frmGestionarGarantias;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+
 
 /**
  *
@@ -21,20 +27,19 @@ import javax.swing.JPanel;
 public class MDIMenu extends javax.swing.JFrame {
 
     FondoPanel fondo = new FondoPanel();
-    
+
     public MDIMenu() {
         initComponents();
-        
+
         this.setExtendedState(MDIMenu.MAXIMIZED_BOTH);
         this.setTitle("Sistema de Creditos Crediohner");
         this.setLayout(null);
-        
+
         int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
         jdpane.setBounds(0, 0, ancho, (alto));
-       
-        
-       //this.setContentPane(fondo);
+
+        //this.setContentPane(fondo);
     }
 
     /**
@@ -234,7 +239,7 @@ public class MDIMenu extends javax.swing.JFrame {
         helpMenu.add(aboutMenuItem);
 
         jMenuItem1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jMenuItem1.setText("Clientes con Préstamos");
+        jMenuItem1.setText("Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -273,7 +278,8 @@ public class MDIMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+      
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
@@ -281,18 +287,18 @@ public class MDIMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
-       frmGarantias cliente = new frmGarantias();
+        frmGarantias cliente = new frmGarantias();
         int x = (jdpane.getWidth() / 2) - cliente.getWidth() / 2;
         int y = ((jdpane.getHeight() / 2) - cliente.getHeight() / 2) - 10;
         cliente.setLocation(x, y);
         jdpane.add(cliente);
         frmGarantias.jButtonActualizar.setVisible(false);
         cliente.show();
-       
+
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       frmGestionarGarantias obj = new frmGestionarGarantias();
+        frmGestionarGarantias obj = new frmGestionarGarantias();
         int x = (jdpane.getWidth() / 2) - obj.getWidth() / 2;
         int y = ((jdpane.getHeight() / 2) - obj.getHeight() / 2) - 10;
         obj.setLocation(x, y);
@@ -368,14 +374,14 @@ public class MDIMenu extends javax.swing.JFrame {
     class FondoPanel extends JPanel {
 
         private Image imagen;
-        
+
         @Override
         public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/Vistas/iconos/fondo.jpg")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
-            
+
         }
     }
 }

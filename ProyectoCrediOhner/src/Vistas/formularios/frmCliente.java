@@ -5,11 +5,18 @@
 package Vistas.formularios;
 
 import Controlador.CRUDCliente;
+import Controlador.Conexion;
 import Modelo.Cliente;
-import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -59,6 +66,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         jTextDireccion = new javax.swing.JTextField();
         jButtonGuardar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -232,6 +240,19 @@ public class frmCliente extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 120, 50));
 
+        jButton1.setText("Reporte");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 353, 110, 40));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 550, 410));
 
         jPanel3.setBackground(new java.awt.Color(250, 178, 53));
@@ -368,6 +389,26 @@ public class frmCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Conexion con = new Conexion();
+        Connection cn = (Connection) con.conectar();
+   
+        String path = "C:\\Users\\Usuario\\Desktop\\CrediOHNER\\ProyectoCrediOhner\\src\\Vistas\\Reportes\\report2.jasper";
+        JasperReport jr;
+        try {
+            jr = JasperCompileManager.compileReport(path);
+            JasperPrint mostrarReporte = JasperFillManager.fillReport(jr, null, cn);
+            JasperViewer.viewReport(mostrarReporte);
+
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
     public void guardarCliente() {
 
         CRUDCliente cc = new CRUDCliente();
@@ -397,6 +438,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton jButton1;
     public static javax.swing.JButton jButtonActualizar;
     public static javax.swing.JButton jButtonGuardar;
     public static javax.swing.JLabel jLabel10;
