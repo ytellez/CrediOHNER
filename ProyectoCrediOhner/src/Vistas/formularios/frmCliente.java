@@ -11,11 +11,13 @@ import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -397,8 +399,8 @@ public class frmCliente extends javax.swing.JInternalFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         Conexion con = new Conexion();
         Connection cn = (Connection) con.conectar();
-   
-        String path = "C:\\Users\\Usuario\\Desktop\\CrediOHNER\\ProyectoCrediOhner\\src\\Vistas\\Reportes\\report2.jasper";
+ 
+        String path = "C:\\Users\\Usuario\\Desktop\\CrediOHNER\\ProyectoCrediOhner\\src\\Vistas\\Reportes\\report1.jrxml";
         JasperReport jr;
         try {
             jr = JasperCompileManager.compileReport(path);
